@@ -35,11 +35,22 @@ class PalindromPermutationTest {
     @ValueSource(strings = {
             "civic", "ivicc", "kajak", "ala"
     })
-    @DisplayName("should return true for any string with no more than one char with counts odd")
+    @DisplayName("should return true for any string with no more than one char with odd occurrence")
     void shouldReturnTrueForAnyStringWithOddUniqueChars(String str) {
         boolean result = PalindromPermutation.hasAnyPalindromPermutation(str);
 
         assertTrue(result);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {
+            "civil", "livci", "ula", "ababab"
+    })
+    @DisplayName("should return false for any string with more than one char with odd occurrence")
+    void shouldReturnFalseForAnyStringWithMoreThanOneCharWithOddOccurrence(String str) {
+        boolean result = PalindromPermutation.hasAnyPalindromPermutation(str);
+
+        assertFalse(result);
 
     }
 
