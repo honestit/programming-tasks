@@ -18,4 +18,14 @@ class ReverseStringInPlaceTest {
         assertArrayEquals(emptyArray, result, "Empty array was not properly reversed");
     }
 
+    @Test
+    @DisplayName("should reverse array of length one")
+    void shouldReverseArrayOfLengthOne() {
+        char[] str = {'a'};
+
+        char[] result = ReverseStringInPlace.reverse(str);
+
+        assertArrayEquals(str, result, "One char array was not properly reversed");
+    }
+
 }
