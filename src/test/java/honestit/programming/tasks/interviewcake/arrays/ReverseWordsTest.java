@@ -20,14 +20,14 @@ class ReverseWordsTest {
     }
 
     @Test
-    @DisplayName("should reverse single word")
+    @DisplayName("should leave empty word")
     void shouldReverseSingleWord() {
         char[] str = "abc".toCharArray();
 
         char[] result = ReverseWords.reverseWords(str);
-        char[] expected = "cba".toCharArray();
+        char[] expected = "abc".toCharArray();
 
-        assertArrayEquals(expected, result, "Doesn't reverse single word");
+        assertArrayEquals(expected, result, "Did reverse single word");
     }
 
 }
