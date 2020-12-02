@@ -37,7 +37,17 @@ class ReverseStringInPlaceTest {
 
         char[] expected = {'d','c','b','a'};
         assertArrayEquals(expected, result, "Even length array was not properly reversed");
+    }
 
+    @Test
+    @DisplayName("should reverse odd length array")
+    void shouldReverseOddLengthArray() {
+        char[] str = {'a','b','c','d','e'};
+
+        char[] result = ReverseStringInPlace.reverse(str);
+
+        char[] expected = {'e','d','c','b','a'};
+        assertArrayEquals(expected, result, "Odd length array was not properly reversed");
     }
 
 }
