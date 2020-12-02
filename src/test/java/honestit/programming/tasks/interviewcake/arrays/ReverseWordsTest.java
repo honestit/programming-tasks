@@ -38,7 +38,6 @@ class ReverseWordsTest {
         char[] str = "cake pound steal".toCharArray();
 
         char[] result = ReverseWords.reverseWords(str);
-        System.out.println(Arrays.toString(result));
 
         char[] expected = "steal pound cake".toCharArray();
         assertArrayEquals(expected, result, "Doesn't reverse list of words");

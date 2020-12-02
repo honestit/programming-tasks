@@ -7,36 +7,32 @@ public class ReverseWords {
             return str;
         }
 
-        for (int i = 0, j = str.length - 1; i < j; i++, j--) {
-            char left = str[i];
-            char right = str[j];
-            str[i] = right;
-            str[j] = left;
-        }
+        // Reverse all string
+        reverseWords(str, -1, str.length);
 
         int lastSeparator = -1;
 
         for (int i = 0; i < str.length; i++) {
             if (str[i] == ' ') {
-                for (int j = lastSeparator + 1, k = i - 1; j < k; j++, k--) {
-                    char left = str[j];
-                    char right = str[k];
-
-                    str[j] = right;
-                    str[k] = left;
-                }
+                // Reverse string from last separator till next separator
+                reverseWords(str, lastSeparator, i);
                 lastSeparator = i;
             }
         }
 
-        for (int i = lastSeparator + 1, j = str.length - 1; i < j; i++, j--) {
-            char left = str[i];
-            char right = str[j];
-
-            str[i] = right;
-            str[j] = left;
-        }
+        // Reverse last word
+        reverseWords(str, lastSeparator, str.length);
 
         return str;
+    }
+
+    private static void reverseWords(char[] str, int wordStart, int wordEnd) {
+        for (int j = wordStart + 1, k = wordEnd - 1; j < k; j++, k--) {
+            char left = str[j];
+            char right = str[k];
+
+            str[j] = right;
+            str[k] = left;
+        }
     }
 }
