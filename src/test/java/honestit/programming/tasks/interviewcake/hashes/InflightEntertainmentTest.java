@@ -19,4 +19,15 @@ class InflightEntertainmentTest {
         assertTrue(result);
     }
 
+    @Test
+    @DisplayName("should return false where tere are no two different movies")
+    void shouldReturnFalseWhereThereAreNoTwoDiffrentMovies() {
+        int flightLength = 10;
+        int[] movies = {3, 4};
+
+        boolean result = InflightEntertainment.areMoviesToWatch(flightLength, movies);
+
+        assertFalse(result);
+    }
+
 }
