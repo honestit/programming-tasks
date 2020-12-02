@@ -1,0 +1,17 @@
+package honestit.programming.tasks.interviewcake.hashes;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class PalindromPermutation {
+
+    public static boolean hasAnyPalindromPermutation(String str) {
+        if (str == null || str.length() == 0) {
+            return false;
+        }
+        if (str.length() == 1) {
+            return true;
+        }
+        return false;
+    }
+}
