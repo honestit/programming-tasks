@@ -16,4 +16,16 @@ class CafeOrderCheckerTest {
         assertTrue(result);
     }
 
+    @Test
+    @DisplayName("should return false when service length is less than sum of orders")
+    void shouldReturnFalseWhenServiceLengthIsLessThanSumOfOrders() {
+        int[] services = new int[] {};
+        int[] takeOut = new int[] {1};
+        int[] ateIn = new int[] {2};
+
+        boolean result = CafeOrderChecker.firstInFirstOut(services, takeOut, ateIn);
+
+        assertFalse(result);
+    }
+
 }
