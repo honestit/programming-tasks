@@ -53,4 +53,21 @@ class MergingRangesTest {
         assertEquals(emptyList, result, "Empty meeting list were not merged properly");
     }
 
+    @Test
+    @DisplayName("should return same meetings when non overlaps")
+    void shouldReturnSameMettingWhenNonOverlaps() {
+        List<Meeting> meetings = List.of(
+                Meeting.of(0, 1),
+                Meeting.of(2, 3),
+                Meeting.of(4, 5),
+                Meeting.of(6, 7),
+                Meeting.of(8, 9)
+        );
+
+        List<Meeting> result = MergingRanges.mergeMeetings(meetings);
+
+        assertEquals(meetings, result, "Non overlapping meetings were merged");
+
+    }
+
 }
