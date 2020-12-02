@@ -24,7 +24,12 @@ public class InflightEntertainment {
             }
             int secondMovieLength = flightLength - movieLength;
             if (moviesUniqueLength.containsKey(secondMovieLength)) {
-                return true;
+                if (secondMovieLength != movieLength) {
+                    return true;
+                }
+                else if (moviesUniqueLength.get(secondMovieLength) > 1) {
+                    return true;
+                }
             }
         }
 

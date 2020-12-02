@@ -30,4 +30,15 @@ class InflightEntertainmentTest {
         assertFalse(result);
     }
 
+    @Test
+    @DisplayName("should return false where only one movie sum with itself")
+    void shouldReturnFalseWhenOnlyOneMovieSumWithItself() {
+        int flightLength = 10;
+        int[] movies = {1,2,3,4,5};
+
+        boolean result = InflightEntertainment.areMoviesToWatch(flightLength, movies);
+
+        assertFalse(result);
+    }
+
 }
