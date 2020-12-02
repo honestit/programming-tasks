@@ -40,4 +40,16 @@ class CafeOrderCheckerTest {
         assertTrue(result);
     }
 
+    @Test
+    @DisplayName("should return false when service is not same order as takeOut and ateIn")
+    void shouldReturnFalseWhenServiceIsNotSameOrderAsTakeOutAndAteIn() {
+        int[] services = {1, 2, 4, 6, 5, 3};
+        int[] takeOut = {1, 3, 5};
+        int[] ateIn = {2, 4, 6};
+
+        boolean result = CafeOrderChecker.firstInFirstOut(services, takeOut, ateIn);
+
+        assertFalse(result);
+    }
+
 }
