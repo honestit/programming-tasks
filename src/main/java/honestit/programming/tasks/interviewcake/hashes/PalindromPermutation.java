@@ -1,5 +1,6 @@
 package honestit.programming.tasks.interviewcake.hashes;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,16 +14,22 @@ public class PalindromPermutation {
             return true;
         }
 
-        Set<Character> uniqueChars = new HashSet<>();
+        HashMap<Character, Integer> occurrenceMap = new HashMap<>();
         for (char c : str.toCharArray()) {
-            uniqueChars.add(c);
+             occurrenceMap.merge(c, 1, Integer::sum);
         }
 
-        if (uniqueChars.size() % 2 == 0) {
-            return false;
+        int oddOccurrences = 0;
+
+        for (Character c : occurrenceMap.keySet()) {
+            Integer occurences = occurrenceMap.get(c);
+            if (occurences % 2 != 0) {
+                oddOccurrences++;
+            }
+            if (oddOccurrences > 1) {
+                return false;
+            }
         }
-        else {
-            return true;
-        }
+        return true;
     }
 }
