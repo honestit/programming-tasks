@@ -23,6 +23,10 @@ public class MergingRanges {
         // Lets make a copy so we won't change original order of meetings
         ArrayList<Meeting> meetingsCopy = new ArrayList<>(meetings);
 
+        if (meetingsCopy.size() == 1) {
+            return meetingsCopy;
+        }
+
         // Lets sort meeting with startTime
         meetingsCopy.sort(Comparator.comparing(Meeting::getStartTime));
 

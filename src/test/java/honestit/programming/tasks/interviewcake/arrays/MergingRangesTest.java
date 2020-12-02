@@ -33,4 +33,14 @@ class MergingRangesTest {
         assertEquals(expected, result, "Meetings were not merged properly");
     }
 
+    @Test
+    @DisplayName("should merge single meeting list")
+    void shouldMergeSingleMeetingList() {
+        List<Meeting> singleMeetingList = List.of(Meeting.of(1, 10));
+
+        List<Meeting> result = MergingRanges.mergeMeetings(singleMeetingList);
+
+        assertEquals(singleMeetingList, result, "Single meeting were not merged properly");
+    }
+
 }
