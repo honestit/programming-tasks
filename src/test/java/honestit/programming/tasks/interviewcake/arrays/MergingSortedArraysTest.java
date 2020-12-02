@@ -45,6 +45,28 @@ class MergingSortedArraysTest {
         assertArrayEquals(expected, result);
     }
 
+    @ParameterizedTest
+    @MethodSource("emptyAndNotEmptyArrays")
+    @DisplayName("should merge not empty with empty array")
+    void shouldMergeNotEmptyWithEmptyArray(int[][] arrays) {
+        int[] result = MergingSortedArrays.mergeSortedArrays(arrays[0], arrays[1]);
+
+        int[] expected = {1,2,3,4,5,6};
+
+        assertArrayEquals(expected, result);
+    }
+
+    static Stream<int[][]> emptyAndNotEmptyArrays() {
+        int[][] firstNotEmpty = new int[][] {
+                {1,2,3,4,5,6}, {}
+        };
+        int[][] secondNotEmpty = new int[][] {
+                {}, {1,2,3,4,5,6}
+        };
+        return Stream.of(firstNotEmpty, secondNotEmpty);
+    }
+
+
     static Stream<int[][]> nullArrays() {
         int[][] bothNulls = new int[][] {
                 null, null
