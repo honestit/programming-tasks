@@ -33,6 +33,18 @@ class MergingSortedArraysTest {
         assertThrows(IllegalArgumentException.class, () -> MergingSortedArrays.mergeSortedArrays(arrays[0], arrays[1]));
     }
 
+    @Test
+    @DisplayName("should merge not empty sorted arrays")
+    void shouldMergeNotEmptySortedArrays() {
+        int[] first = {3, 4, 6, 10, 11, 15};
+        int[] second = {1, 5, 8, 12, 14, 19};
+
+        int[] result = MergingSortedArrays.mergeSortedArrays(first, second);
+
+        int[] expected = {1, 3, 4, 5, 6, 8, 10, 11, 12, 14, 15, 19};
+        assertArrayEquals(expected, result);
+    }
+
     static Stream<int[][]> nullArrays() {
         int[][] bothNulls = new int[][] {
                 null, null
