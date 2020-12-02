@@ -12,6 +12,17 @@ public class PalindromPermutation {
         if (str.length() == 1) {
             return true;
         }
-        return false;
+
+        Set<Character> uniqueChars = new HashSet<>();
+        for (char c : str.toCharArray()) {
+            uniqueChars.add(c);
+        }
+
+        if (uniqueChars.size() % 2 == 0) {
+            return false;
+        }
+        else {
+            return true;
+        }
     }
 }
